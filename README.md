@@ -17,7 +17,7 @@ This is a simple interactive drum kit web application built with JavaScript, CSS
 - You can also click on the drum pads with your mouse.
 
 ## Live Demo
-[Live Demo on Netlify](https://your-netlify-url-here.netlify.app)
+[Live Demo on Netlify](https://drum-tata.netlify.app/)
 
 ## Installation
 1. Clone the repository:
