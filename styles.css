@@ -1,0 +1,130 @@
+/* Resetting default browser styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Body styling to center everything */
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ff6b6b, #f7b42c, #00d2ff, #8e44ad);
+    background-size: 400% 400%;
+    animation: gradientBackground 5s ease infinite;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    transition: background 0.3s;
+}
+
+/*Background animation*/
+@keyframes gradientBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Ensuring the keys are wrapped and center-aligned */
+.keys {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* Styling for each key */
+.key {
+    border: 0.4rem solid black;
+    border-radius: 1rem;
+    margin: 1rem;
+    font-size: 1.5rem;
+    padding: 1.5rem;
+    transition: all 0.1s ease;
+    width: 8rem;
+    text-align: center;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* When the key is playing after being pressed */
+.key.playing {
+    transform: scale(1.2);
+    background-color: #ffe100;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+    border-color: #ff4d4d;
+}
+
+kbd {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    z-index: 2;
+}
+
+/* Add glowing effect on playing */
+.key.playing::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    animation: pulse 0.5s ease;
+    z-index: 1;
+}
+
+/* Glowing pulse animation */
+@keyframes pulse {
+    0% { transition: translate(-50%, -50%) scale(0); opacity: 1; }
+    100% { transition: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+/* Background flash effect */
+body.flash {
+    background: linear-gradient(135deg, #00d2ff,#f7b42c, #ff6b6b, #8e44ad);
+    animation: flashEffect 0.03s ease;
+}
+
+@keyframes flashEffect {
+    0% { background-size: 200% 200%; }
+    100% { background-size: 400% 400%; }
+}
+
+/* The sound label (e.g., "Clap", "Kick" */
+.sound {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #555;
+    z-index: 2;
+}
+
+/* Ensuring proper sizing on smaller screen */
+@media (max-width: 600px) {
+    .key {
+        width: 7rem;
+        padding: 0.5rem;
+    }
+
+    kbd {
+        font-size: 1.5rem;
+    }
+
+    .sound {
+        font-size: 0.8rem;
+    }
+}
